@@ -7,12 +7,12 @@
   DTS:CreatorName="ADMIN\Sanjeev Dhiman"
   DTS:DTSID="{491E896A-25A1-4210-ADD6-053C10B1ED30}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="CSV_Email_Import"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E4D2FF54-D496-4FFE-93FC-5FA198E8EE90}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{116E826B-1089-4366-9E58-A1B9EAAE3429}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,16 +42,15 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\All in one\A_Study Records\SSIS Package\Sample data\Emails.csv">
+          DTS:ConnectionString="C:\Users\hp\Desktop\SSIS-ETL-Project\Sample data\Emails.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="131"
-              DTS:DataPrecision="18"
+              DTS:DataType="16"
               DTS:TextQualified="True"
               DTS:ObjectName="id"
-              DTS:DTSID="{C7766D7B-893D-4F4C-A093-84BEDF15FA95}"
+              DTS:DTSID="{AD203960-C746-4C69-89EE-9708A58D8324}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -60,7 +59,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="first_name"
-              DTS:DTSID="{AE2DF849-1E78-498D-BF44-38880C29675B}"
+              DTS:DTSID="{0CC89C3B-244F-4324-9084-2C3C4DD5A55F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -69,7 +68,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="last_name"
-              DTS:DTSID="{D51FAD40-D0D6-4896-9994-6092CDE330B3}"
+              DTS:DTSID="{83CBF223-8875-4CEF-9A99-67824500F6E5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -78,7 +77,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="email"
-              DTS:DTSID="{5D6802DF-8DF7-4700-A845-83ABDE33CEC8}"
+              DTS:DTSID="{3C6D4638-DD5F-4543-897C-37DED620042B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -87,10 +86,22 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="gender"
-              DTS:DTSID="{F1B73615-45CA-40B7-B261-664BC26E2800}"
+              DTS:DTSID="{308CA964-77A1-4E3B-A1DC-B3D148333612}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F2F80A73-470A-4EED-BFD4-D41E6D5B5C06}"
+      DTS:ObjectName="S-DHIMAN\SQLEXPRESS.amazon">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=S-DHIMAN\SQLEXPRESS;Initial Catalog=amazon;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-CSV_Email_Import-{F2F80A73-470A-4EED-BFD4-D41E6D5B5C06}S-DHIMAN\SQLEXPRESS.amazon;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -143,13 +154,12 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
-                      dataType="numeric"
+                      dataType="i1"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
                       name="id"
-                      precision="18"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -255,9 +265,8 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
-                      dataType="numeric"
-                      name="id"
-                      precision="18" />
+                      dataType="i1"
+                      name="id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[first_name]"
                       codePage="1252"
@@ -329,7 +338,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[CSV_Email_Import]</property>
+                  name="OpenRowset">[Email_Csv1]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -372,8 +381,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ADMIN\SQLSERVER2017DEV.Power2]"
-                  connectionManagerRefId="Package.ConnectionManagers[ADMIN\SQLSERVER2017DEV.Power2]"
+                  connectionManagerID="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
+                  connectionManagerRefId="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -387,9 +396,8 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
-                      cachedDataType="numeric"
+                      cachedDataType="i1"
                       cachedName="id"
-                      cachedPrecision="18"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]" />
                     <inputColumn
@@ -429,9 +437,8 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      dataType="numeric"
-                      name="id"
-                      precision="18" />
+                      dataType="i2"
+                      name="id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1252"
@@ -509,7 +516,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\Data Flow Task"
           TopLeft="5.5,5.5" />
       </GraphLayout>
@@ -521,13 +528,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="5.5,5.5" />
-        <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="270.5,16.5" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="161.5,26.5">
