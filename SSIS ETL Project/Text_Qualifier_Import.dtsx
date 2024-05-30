@@ -7,12 +7,12 @@
   DTS:CreatorName="ADMIN\Sanjeev Dhiman"
   DTS:DTSID="{B425FC31-3583-41E8-96B1-D6432651F4A8}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Text_Qualifier_Import"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{963856A4-5125-4579-9848-2DC727EF601A}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{CE467CC8-78B6-404A-A374-808E34D6A033}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,7 +42,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="D:\All in one\A_Study Records\SSIS Package\Sample data\Currency.txt">
+          DTS:ConnectionString="C:\Users\hp\Desktop\SSIS-ETL-Project\Sample data\Currency.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -51,7 +51,7 @@
               DTS:DataPrecision="18"
               DTS:TextQualified="True"
               DTS:ObjectName="id"
-              DTS:DTSID="{02596B9C-CD53-40E8-9E83-60034749450C}"
+              DTS:DTSID="{90589DCE-0BFD-4E05-AE0B-3D47594F4C04}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -60,7 +60,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="first_name"
-              DTS:DTSID="{C02D563E-654E-4EDE-8DA6-ACDEE24DB7D9}"
+              DTS:DTSID="{067146FE-BF95-4155-936E-04741CA0A4FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -69,7 +69,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="last_name"
-              DTS:DTSID="{7ECC0F9C-FBC4-4AB4-BD51-D4ED9518CC1E}"
+              DTS:DTSID="{6FEEA12B-A0F6-4D33-A8A0-6F23853DF70A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -78,7 +78,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="email"
-              DTS:DTSID="{4960512B-B766-4294-8F66-A2BBCEBEEB9C}"
+              DTS:DTSID="{1AB3D7AD-5C1C-474A-8CEB-9007B0C5B3C7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -87,7 +87,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Currency"
-              DTS:DTSID="{A2FA01DD-8869-4EC2-A44D-14D498287CDA}"
+              DTS:DTSID="{3414CEBC-FE95-4B2D-A548-72B4A3E903E5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -96,10 +96,22 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="gender"
-              DTS:DTSID="{3CFD43BC-F31F-4F13-81F8-2F67AC2CFC23}"
+              DTS:DTSID="{35735A23-65B2-4779-A849-9B4D22163449}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2C36DAFF-3514-4A89-B47E-A3CFE40EE255}"
+      DTS:ObjectName="S-DHIMAN\SQLEXPRESS.amazon">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=S-DHIMAN\SQLEXPRESS;Initial Catalog=amazon;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Text_Qualifier_Import-{2C36DAFF-3514-4A89-B47E-A3CFE40EE255}S-DHIMAN\SQLEXPRESS.amazon;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -366,7 +378,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[Text_Qualifier_Import]</property>
+                  name="OpenRowset">[OLE DB Destination1]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -409,8 +421,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ADMIN\SQLSERVER2017DEV.Power2]"
-                  connectionManagerRefId="Package.ConnectionManagers[ADMIN\SQLSERVER2017DEV.Power2]"
+                  connectionManagerID="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
+                  connectionManagerRefId="Package.ConnectionManagers[S-DHIMAN\SQLEXPRESS.amazon]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -560,7 +572,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\Data Flow Task"
           TopLeft="5.5,5.5" />
       </GraphLayout>
@@ -572,11 +584,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\Data Flow Task\Flat File Source"
           TopLeft="281.5,54.5" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="296.5,244.5" />
         <EdgeLayout
